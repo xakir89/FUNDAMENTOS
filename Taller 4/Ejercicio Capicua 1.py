@@ -32,4 +32,4 @@ def capicua():
                 no_capicua=True
             
 
-cpicua()
+capic 
