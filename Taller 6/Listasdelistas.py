@@ -314,6 +314,21 @@ def registrosalida(empleados):
 
     print(f"Ingreso registrado con éxito! Estado: {estado_salida}")
     
+def modificarempleado(empleados):
+    if len(empleados) == 0:
+        print("\nError: No hay empleados creados todavía. Vaya a la opción 1 primero.")
+        return
+    buscar_id = int(input("Ingrese La Identificacion del Empleado Que Va a Ingresar: "))
+    empleado_actual = None
+    for emp in empleados:
+        if emp[0] == buscar_id:
+            empleado_actual = emp
+            break
+    if empleado_actual == None:
+        print("")
+        return
+
+    
 menu()
 
     
