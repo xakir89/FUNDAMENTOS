@@ -57,7 +57,8 @@ def comprarsillas(sillas, numero_factura, historial_factura):
     while desea_general == "s" or desea_general == "S":
         mostrarsillas(sillas)
         pos = int(input("\nDigite el número de silla General (0-9): "))
-        
+    desea_general = input("\n¿Desea silla General? (s/n): ")
+    while desea_general == "s" or desea_vip == "S":    
         if rango(pos) and pos <= 9:
             if sillas[pos] == "X":
                 print("\n¡ERROR! Silla ocupada")
