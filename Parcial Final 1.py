@@ -47,30 +47,42 @@ def comprarsillas(sillas, numero_factura, historial_factura):
 
     print("\n--- INICIO DE COMPRA ---")
 
+    # Validación inicial de entrada para Zona General
     while True:
         desea_general = input("\n¿Desea silla General? (s/n): ")
         if desea_general == "s" or desea_general == "n" or desea_general == "S" or desea_general == "N":
             break
         else:
             print("\n¡ERROR! Ingrese 's' para sí o 'n' para no.")
+
     # 1. Selección Iterativa de Sillas Generales
     while desea_general == "s" or desea_general == "S":
         mostrarsillas(sillas)
-        pos = int(input("\nDigite el número de silla General (0-9): "))
-    desea_general = input("\n¿Desea silla General? (s/n): ")
-    while desea_general == "s" or desea_vip == "S":    
-        if rango(pos) and pos <= 9:
-            if sillas[pos] == "X":
-                print("\n¡ERROR! Silla ocupada")
+        
+        # Validación estricta con puros 'if' para evitar letras en Zona General
+        while True:
+            pos_texto = input("\nDigite el número de silla General (0-9): ")
+            if pos_texto=="0" or pos_texto=="1" or pos_texto=="2" or pos_texto=="3" or pos_texto=="4" or pos_texto=="5" or pos_texto=="6" or pos_texto=="7" or pos_texto=="8" or pos_texto=="9":
+                pos = int(pos_texto)
+                break
             else:
-                sillas[pos] = "X"
-                cant_general = cant_general + 1
-                total_compra = total_compra + 5000
-                print(f"\nSilla General {pos} agregada exitosamente.")
+                print("\n¡ERROR! Entrada inválida. Debe ingresar un número entre 0 y 9 (sin letras).")
+        
+        if sillas[pos] == "X":
+            print("\n¡ERROR! Silla ocupada")
         else:
-            print("\n¡ERROR! El número ingresado no corresponde a la zona General.")
+            sillas[pos] = "X"
+            cant_general = cant_general + 1
+            total_compra = total_compra + 5000
+            print(f"\nSilla General {pos} agregada exitosamente.")
 
-        desea_general = input("\n¿Desea otra silla General? (s/n): ")
+        # Pregunta para continuar en General (Solo se repite si se equivocan)
+        while True:
+            desea_general = input("\n¿Desea otra silla General? (s/n): ")
+            if desea_general == "s" or desea_general == "n" or desea_general == "S" or desea_general == "N":
+                break
+            else:
+                print("\n¡ERROR! Ingrese 's' para sí o 'n' para no.")
 
     # 2. Selección Iterativa de Sillas VIP
     while True:
@@ -80,23 +92,33 @@ def comprarsillas(sillas, numero_factura, historial_factura):
         else:
             print("\n¡ERROR! Ingrese 's' para sí o 'n' para no.")
             
-    desea_vip = input("\n¿Desea silla VIP? (s/n): ")
     while desea_vip == "s" or desea_vip == "S":
         mostrarsillas(sillas)
-        pos = int(input("\nDigite el número de silla VIP (10-19): "))
         
-        if rango(pos) and pos >= 10:
-            if sillas[pos] == "X":
-                print("¡ERROR! Silla ocupada")
+        # Validación estricta con puros 'if' para evitar letras en Zona VIP
+        while True:
+            pos_texto = input("\nDigite el número de silla VIP (10-19): ")
+            if pos_texto=="10" or pos_texto=="11" or pos_texto=="12" or pos_texto=="13" or pos_texto=="14" or pos_texto=="15" or pos_texto=="16" or pos_texto=="17" or pos_texto=="18" or pos_texto=="19":
+                pos = int(pos_texto)
+                break
             else:
-                sillas[pos] = "X"
-                cant_vip = cant_vip + 1
-                total_compra = total_compra + 10000
-                print(f"Silla VIP {pos} agregada exitosamente.")
+                print("\n¡ERROR! Entrada inválida. Debe ingresar un número entre 10 y 19 (sin letras).")
+        
+        if sillas[pos] == "X":
+            print("\n¡ERROR! Silla ocupada")
         else:
-            print("\n¡ERROR! El número ingresado no corresponde a la zona VIP.")
+            sillas[pos] = "X"
+            cant_vip = cant_vip + 1
+            total_compra = total_compra + 10000
+            print(f"\nSilla VIP {pos} agregada exitosamente.")
 
-        desea_vip = input("\n¿Desea otra silla VIP? (s/n): ")
+        # Pregunta para continuar en VIP (Solo se repite si se equivocan)
+        while True:
+            desea_vip = input("\n¿Desea otra silla VIP? (s/n): ")
+            if desea_vip == "s" or desea_vip == "n" or desea_vip == "S" or desea_vip == "N":
+                break
+            else:
+                print("\n¡ERROR! Ingrese 's' para sí o 'n' para no.")
 
     # 3. Procesamiento y registro final de la Factura Unificada
     if cant_general > 0 or cant_vip > 0:
@@ -104,7 +126,7 @@ def comprarsillas(sillas, numero_factura, historial_factura):
         
         # Guardamos el registro consolidado en la matriz de historial
         nueva_fila = [numero_factura, nombre_cliente, cant_general, cant_vip, total_compra]
-        historial_ura = historial_factura.append(nueva_fila)
+        historial_factura.append(nueva_fila)
         
         print("\n ¡COMPRA REALIZADA CON EXITO! Factura No. ", numero_factura)
         numero_factura = numero_factura + 1
