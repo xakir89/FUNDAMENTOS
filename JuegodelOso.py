@@ -3,14 +3,31 @@ def rango(pos):
     if pos >=0 and pos <=16:
         r = True
     return r
-def assignarpos(o,pos,simbolo):
+def asignarpos(o,pos,simbolo):
     o[pos] = simbolo
     return simbolo
+def hayjuegoo(o):
+    hj = False
+    for i in range(16):
+        if o[i] == i:
+            hj = True
+    return hj
 def poslibre(o,pos):
     pl = False
     if o[pos] == pos:
         pl = True
     return pl
+def ganador(o,simbiolo):
+    g = False
+    if((o[0]==simbiolo and o[1]==simbiolo and o[2]==simbiolo and o[3]==simbiolo) or
+       (o[4]==simbiolo and o[5]==simbiolo and o[6]==simbiolo and o[7]==simbiolo) or
+       (o[8]==simbiolo and o[9]==simbiolo and o[10]==simbiolo and o[11]==simbiolo) or
+       (o[12]==simbiolo and o[13]==simbiolo and o[14]==simbiolo and o[15]==simbiolo) or
+       (o[0]==simbiolo and o[4]==simbiolo and o[8]==simbiolo and o[12]==simbiolo) or
+       (o[1]==simbiolo and o[5]==simbiolo and o[9]==simbiolo and o[13]==simbiolo) or
+       (o[2]==simbiolo and o[6]==simbiolo and o[10]==simbiolo and o[14]==simbiolo) or
+       (o[3]==simbiolo and o[7]==simbiolo and o[11]==simbiolo and o[15]==simbiolo)):
+        g = True
 def mostrar(O):
     o= O
     print("\n.............................\n¡Bienvenido al juego del oso!\n.............................\n")
