@@ -16,6 +16,7 @@ mensaje = "Hola querido Ernesto"
 buscar_subcadena = mensaje.find("querido")
 print("La subcadena se encuentra en la posicion = ",buscar_subcadena,"\n")
 
+print(".......adicion de Cadenas.......\n")
 mensaje = "Hola "
 mensaje += "querido "
 mensaje += "Ernesto"
