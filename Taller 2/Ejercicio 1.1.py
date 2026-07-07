@@ -1,11 +1,49 @@
-# --- DATOS ESTUDIANTE 1 ---
-print("--- Registro Estudiante 1 ---")
-e1n1 = float(input("Ingrese Nota 1: "))
-e1n2 = float(input("Ingrese Nota 2: "))
-e1n3 = float(input("Ingrese Nota 3: "))
-e1n4 = float(input("Ingrese Nota 4: "))
+def validarnota(numero_nota):
+    bandera = True
+    while bandera:
+        print(f"Registro Notas Estudiante {estuNo}")
+        nota = float(input("Ingrese Nota {nota}: "))
+        if nota >= 0 and nota <=5:
+                bandera = False
+                return nota
+        else:
+            print("La nota debe ser de 0.0 a 5.0")         
+            
+def estudiante(numero_estudiante):
+    print(f"\n--- Registro Estudiante {numero_estudiante} ---") 
+    nombre = input("Ingrese Nombre del estudiante: ")
 
-# Validación Matemática: 0 debe ser menor o igual a la nota
+    n1 = validarnota(1)
+    n2 = validarnota(2)
+    n3 = validarnota(3)
+    n4 = validarnota(4)
+
+    pro = (n1+n2+n3+n4) / 4
+
+    return [nombre, n1, n2, n3, n4, pro]
+def menu():
+    print("""
+******************************************
+*                                        *
+*      ingreso de Notas Estudiantes      *
+*                                        *
+*      1. ingreso notas Estudiantes      *
+*      2. consultar Estudiantes          *
+*      3. Ganador beca                   *
+*      4. Salida                         *
+*                                        *
+******************************************
+""")
+    bandera = True
+    while bandera:
+        opc = int(input("Ingresa una Opcion: "))
+        if opc == 1:
+            estudiante(numero_estudiante)
+
+def final():
+    columna = [Nombre, Nota_1, Nota_2, Nota_3, Nota_4]
+    fila = []
+    
 if 0 <= e1n1 <= 5:
     if 0 <= e1n2 <= 5:
         if 0 <= e1n3 <= 5:
