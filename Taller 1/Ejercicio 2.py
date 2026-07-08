@@ -1,6 +1,8 @@
 def Dato(VARIABLE_NUMERO):
+    print()
     print("INGRESA EL DATO PARA REALIZAR EL EJERCICIO:")
     x = float(input(f"Digita Su numero para {VARIABLE_NUMERO}"))
+    print()
     return x
 def perimetro(a,b,c):
     p = (a+b+c)/2
@@ -11,7 +13,7 @@ def area(p,a,b,c):
 
 def tablero(A,p,a,b,c):
     print(f"""
-    ********************AREA Y SEMIPERIMETRO********************
+    ******************* AREA Y SEMIPERIMETRO *******************
     *                                                          *
     *                     _________________                    *
     *             ÁREA = √ p(p-a)(p-b)(p-c) = {A:.2f}             *
@@ -23,7 +25,7 @@ def tablero(A,p,a,b,c):
     ************************************************************
     """)
 def main():
-    print("**********AREA Y SEMIPERIMETRO DATOS DE INGRESO**********")
+    print("********** AREA Y SEMIPERIMETRO DATOS DE INGRESO **********")
 
     a = Dato("a: ")
     while a < 0:
@@ -42,5 +44,26 @@ def main():
     A = area(p,a,b,c)
 
     tablero(A,p,a,b,c)
-main()
+
+def menu():
+    while True:
+        print("""
+        ********* BIENVENIDO A LA CALCULADORA CIENTÍFICA *********
+        *                                                        *
+        *                    1. Ingresar Datos                   *
+        *                    2. Salir                            *    
+        *                                                        *
+        **********************************************************
+        """)
+        opc = int(input("Seleccione una Opcion: "))
+        if opc == 1:
+            main()
+        else:
+            if opc ==2:
+                print("Gracias por confiar en nosotros")
+                print()
+                break
+            else:
+                print("Dato errado la opcion solo puede ser 1 o 2")
+menu()
     

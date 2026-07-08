@@ -1,17 +1,79 @@
-print("\n AREA TRIANGULO, AREA ROMBO, AREA TRAPESIO \n")
-bt = float(input("Ingresa Base del Triangulo:"))
-ht = float(input("Ingresa Altura del Triangulo:"))
-AT = (bt*ht)/2
+def variable(v):
+    x = float(input(f"Ingrese el valor para {v}: "))
+    print()
+    return x
+def area_triangulo():
+    base = variable("base del triangulo")
+    altura = variable("altura del triangulo")
+    area = (base*altura)/2
+    return area
+def area_rombo():
+    diagional_mayor = variable("diagonal mayor del rombo")
+    diagonal_menor = variable("diagonal menor del rombo")
+    area = (diagional_mayor*diagonal_menor)/2
+    return area
+def area_trapesio():
+    base_mayor = variable("base mayor del trapesio")
+    base_menor = variable("base menor del trapesio")
+    altura = variable("altura del trapesio")
+    area = ((base_mayor+base_menor)*altura)/2
+    return area
 
-Dr = float(input("Ingresa Diagonal mayor del Rombo:"))
-dr = float(input("Ingresa Diagonal menor del Rombo:"))
-AR = (Dr*dr)/2
 
-Btr = float(input("Ingresa Base mayor del Trapesio:"))
-btr = float(input("Ingresa Base menor del Trapesio:"))
-htr = float(input("Ingresa Altura del Trapesio:"))
-ATR = ((Btr+btr)*htr)/2
 
-print(f"\n Area del Triangulo es base {bt} por altura {ht} divido 2 = {AT} \n")
-print(f"\n Area del Rombo  es Diagonal mayor {Dr} por diagonal menor {dr} divido 2 = {AR} \n")
-print(f"\n Area del Trapesio es Base mayor {Btr} por base menor {btr} por Altura del trapesio {htr} divido 2 = {ATR} \n")
+def menu():
+    while True:
+        print("""
+        ************ BIENVENIDO AL ALGORITMO DE AREAS ************
+        *                                                        *
+        *                1. hallar Area Triangulo                *
+        *                2. hallar Area Rombo                    *
+        *                3. hallar Area Trapesio                 *
+        *                4. Salir                                *    
+        *                                                        *
+        **********************************************************
+        """)
+        opc = int(input("Seleccione una Opcion: "))
+        if opc == 1:
+            area = area_triangulo()
+            print(f"""
+        ******************* AREA DEL TRIANGULO *******************
+        *       *                                                *
+        *      * *          BASE  X ALTURA                       *
+        *     *   *        ---------------- = {area:.2f}          *
+        *    *******               2                             *
+        *                                                        *
+        **********************************************************
+        """)            
+        elif opc == 2:
+            area = area_rombo()
+            print(f"""
+        ********************* AREA DEL ROMBO *********************
+        *  ***********                                           *
+        *   *         *    DIAGONAL MAYOR  X DIAGONAL MENOR      *
+        *    *         *   ---------------------------------     *
+        *     ***********             2                          *
+        *                                        = {area:.2f}    *
+        **********************************************************
+        """)   
+        elif opc == 3:
+            area = area_trapesio()
+            print(f"""
+        ******************** AREA DEL TRAPESIO *******************
+        *      ****                                              *
+        *     *    *          (BASE MAYOR + BASE MENOR) X ALTURA *
+        *    *      *        ----------------------------------- *
+        *    *********                       2                   *
+        *                                       = {area:.2f}     *
+        **********************************************************
+        """)   
+        elif opc == 4:
+            print("Gracias por confiar en nosotros")
+            print()
+            break
+        else:
+            print("Dato errado la opcion solo puede ser 1 al 4")
+menu()
+
+
+

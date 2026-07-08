@@ -1,6 +1,7 @@
 def solicitud_numero(variable_numero):
     """Solicita un Numero al usuario de Forma Segura"""
     x = float(input(f"Digita Su numero para {variable_numero}"))
+    print()
     return x        
         
 def ej5(a,b):
@@ -31,7 +32,7 @@ def ej6(a):
     x = a**10-5    
     return x
 
-def tablero(A,X,a,b,c,r1,r2,r3,r4,r5,r6):
+def tablero(A,a,b,c,X,r1,r2,r3,r4,r5,r6):
     if r1 != None:
         res1 = f"{r1:.1f}"
     else:
@@ -64,7 +65,6 @@ def tablero(A,X,a,b,c,r1,r2,r3,r4,r5,r6):
     *****************************************************************
            """)
 def main():
-    print("=== BIENVENIDO A LA CALCULADORA CIENTÍFICA ===")
     A = solicitud_numero("A: ")
     a = solicitud_numero("a: ")
     b = solicitud_numero("b: ")
@@ -79,5 +79,25 @@ def main():
     r6 = ej6(a)
 
     tablero(A,a,b,c,X,r1,r2,r3,r4,r5,r6)
-main()
+
+def menu():
+    while True:
+        print("""
+        ======= BIENVENIDO A LA CALCULADORA CIENTÍFICA ========
+        *******************************************************
+        *                  1. Ingresar Datos                  *
+        *                  2. Salir                           *
+        *******************************************************
+        """)
+        opcion = int(input("Seleccione una Opcion: "))
+        print()
+        if opcion == 1:
+            main()
+        else:
+            if opcion == 2:
+                print(f"Gracias por Confiar en nosotros\n")
+                break
+            else:
+                print("Dato errado la opcion solo puede ser 1 o 2")
+menu()
     
