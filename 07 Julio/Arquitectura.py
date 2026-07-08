@@ -1,6 +1,7 @@
 def ingreso(v):
     x = float(input(f"\nIngrese Valor para {v}"))
     return x
+
 def operacion():
     BM = ingreso("Base Mayor: ")
     bm = ingreso("Base Menor: ")
@@ -8,10 +9,7 @@ def operacion():
 
     AM = (BM/bm)*am
 
-    return BM, bm, am, AM
-
-
-            
+    return BM, bm, am, AM            
             
 def tablero(BM, bm, am, AM):    
     print(f"""
@@ -51,12 +49,9 @@ def menu():
         if opc == 1:
             BM, bm, am, AM = operacion()
             tablero(BM, bm, am, AM)
-            
-            if opc == 2:
-                print("Gracias por la Confianza")
-                break
-            else:
-                print("Dato Errado")
+        elif opc == 2:
+            print("Gracias por la Confianza")
+            break   
         else:
             print("Dato Errado")
 
