@@ -52,6 +52,7 @@ def menu():
         elif opc == 2:
             print("Gracias por la Confianza")
             break   
+          
         else:
             print("Dato Errado")
 
