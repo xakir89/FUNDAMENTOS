@@ -1,3 +1,9 @@
+# 3. Elaborar un algoritmo para cada uno de los siguientes problemas : 
+#    a. Convertir de dólares a pesos 
+#    b. Convertir de pesos a dólares 
+#    c. Convertir de grados centígrados a Farenheit. 
+#    d. Calcular el promedio de 3 números  
+
 def ingreso(dato):
     x = int(input(F"Ingrese Dato Solicitado {dato}: "))
     print()
@@ -26,25 +32,24 @@ def opc ():
 +                                            +
 ++++++++++++++++++++++++++++++++++++++++++++++
 """)
-        else:
-            if opc == 2:
-                gf = ingresoG(f"Grados Farenheit")
-                gc = (gf-32)*(5/9)
-                print(f"""
-    ++++++++++++++++++++++++++++++++++++++++++++++
-    +                                            +
-    +           Grados Farenheit {gf}            +
-    +               convertidos                  +
-    +           Grados centigrados {gc:.1f}          +
-    +                                            +
-    ++++++++++++++++++++++++++++++++++++++++++++++
+        elif opc == 2:
+            gf = ingresoG(f"Grados Farenheit")
+            gc = (gf-32)*(5/9)
+            print(f"""
+++++++++++++++++++++++++++++++++++++++++++++++
++                                            +
++           Grados Farenheit {gf}            +
++               convertidos                  +
++           Grados centigrados {gc:.1f}          +
++                                            +
+++++++++++++++++++++++++++++++++++++++++++++++
     """)
-            else:
-                if opc == 3:
-                    print("Gracias por Confiar en nosotros")
-                    bandera = False
-                else:
-                    print(f"Dato Errado solo hay 3 opciones Disponibles\n")
+        elif opc == 3:
+            print("Gracias por Confiar en nosotros")
+            print()
+            bandera = False
+        else:
+            print(f"Dato Errado solo hay 3 opciones Disponibles\n")
 
                     
 def Tablero():

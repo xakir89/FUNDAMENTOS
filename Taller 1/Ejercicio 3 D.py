@@ -1,3 +1,9 @@
+# 3. Elaborar un algoritmo para cada uno de los siguientes problemas : 
+#    a. Convertir de dólares a pesos 
+#    b. Convertir de pesos a dólares 
+#    c. Convertir de grados centígrados a Farenheit. 
+#    d. Calcular el promedio de 3 números  
+
 def ingreso(dato):
     x = float(input(f"""
 .......................................

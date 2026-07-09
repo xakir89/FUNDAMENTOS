@@ -1,3 +1,6 @@
+# Elaborar un algoritmo que permita calcular cada una de las siguientes expresiones,
+# teniendo en cuenta las variables de entrada:
+ 
 def solicitud_numero(variable_numero):
     """Solicita un Numero al usuario de Forma Segura"""
     x = float(input(f"Digita Su numero para {variable_numero}"))

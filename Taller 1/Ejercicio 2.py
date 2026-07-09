@@ -1,3 +1,6 @@
+# Elaborar un algoritmo que permita calcular el área de un triangulo, dada la longitud
+# de cada uno de sus lados.
+
 def Dato(VARIABLE_NUMERO):
     print()
     print("INGRESA EL DATO PARA REALIZAR EL EJERCICIO:")

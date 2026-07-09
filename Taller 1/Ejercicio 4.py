@@ -1,3 +1,8 @@
+# Elaborar un algoritmo para calcular cada una de las siguientes áreas:
+#  • Triangulo
+#  • Rombo
+#  • Trapecio 
+
 def variable(v):
     x = float(input(f"Ingrese el valor para {v}: "))
     print()
@@ -18,8 +23,6 @@ def area_trapesio():
     altura = variable("altura del trapesio")
     area = ((base_mayor+base_menor)*altura)/2
     return area
-
-
 
 def menu():
     while True:
