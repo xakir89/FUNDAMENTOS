@@ -8,66 +8,157 @@ def variable(v):
     print()
     return x
 def area_triangulo():
-    base = variable("base del triangulo")
-    altura = variable("altura del triangulo")
+    base = variable(f"""
+                    
+          *
+         * *
+        *   *            
+       *     *          
+      *********              
+      |- base -|  
+                               
+base del triangulo""")
+    altura = variable(f"""
+                      
+     ---------  *
+     |         * *            
+   altura     *   *
+     |       *     *          
+     ------ *********     
+                               
+    altura del triangulo""")
     area = (base*altura)/2
-    return area
+    return area, base, altura
 def area_rombo():
-    diagional_mayor = variable("diagonal mayor del rombo")
-    diagonal_menor = variable("diagonal menor del rombo")
+    diagional_mayor = variable(f"""
+                               
+     ------------------ *
+     |                 * *
+     |                *   *
+     |               *     *
+     |              *       *
+    Diagonal Mayor *         *
+     |              *       *
+     |               *     *
+     |                *   *
+     |                 * *
+     ------------------ *   
+                                                                                     
+diagonal mayor del rombo""")
+    diagonal_menor = variable(f"""
+                              
+                        *
+                       * *
+                      *   *
+                     *     *
+                    *       *
+                   *         *
+                  | *       * |
+                  |  *     *  |
+                  |   *   *   |
+                  |    * *    |
+                  |     *     |
+                  - Dia Menor - 
+                                    
+diagonal menor del rombo""")
     area = (diagional_mayor*diagonal_menor)/2
     return area
 def area_trapesio():
-    base_mayor = variable("base mayor del trapesio")
-    base_menor = variable("base menor del trapesio")
-    altura = variable("altura del trapesio")
+    base_mayor = variable(f"""
+
+      --------- **********
+      |        *          *          
+    Altura    *            *         
+      |      *              *
+      ----- ******************
+                                                  
+base mayor del trapesio""")
+    base_menor = variable(f"""
+                          
+               |-Ba Menor-|          
+                **********
+               *          *          
+              *            *         
+             *              *
+            ******************
+
+base menor del trapesio""")
+    altura = variable(f"""\
+
+                **********
+               *          *          
+              *            *         
+             *              *
+            ******************                   
+            |-- Base Mayor ---|                     
+
+altura del trapesio""")
     area = ((base_mayor+base_menor)*altura)/2
-    return area
+    return area, altura, base_mayor, base_menor
 
 def menu():
     while True:
         print("""
-        ************ BIENVENIDO AL ALGORITMO DE AREAS ************
-        *                                                        *
-        *                1. hallar Area Triangulo                *
-        *                2. hallar Area Rombo                    *
-        *                3. hallar Area Trapesio                 *
-        *                4. Salir                                *    
-        *                                                        *
-        **********************************************************
+************ BIENVENIDO AL ALGORITMO DE AREAS ************
+*                                                        *
+*                1. hallar Area Triangulo                *
+*                2. hallar Area Rombo                    *
+*                3. hallar Area Trapesio                 *
+*                4. Salir                                *    
+*                                                        *
+**********************************************************
         """)
         opc = int(input("Seleccione una Opcion: "))
         if opc == 1:
-            area = area_triangulo()
+            area, b, a = area_triangulo()
             print(f"""
-        ******************* AREA DEL TRIANGULO *******************
-        *       *                                                *
-        *      * *          BASE  X ALTURA                       *
-        *     *   *        ---------------- = {area:.2f}          *
-        *    *******               2                             *
-        *                                                        *
-        **********************************************************
+******************* AREA DEL TRIANGULO ************************
+*                                                             *
+*     ---------  *                                            *
+*     |         * *            {b:.1f} X {a:.1f}                    *
+*   altura     *   *           -----------  = {area:.1f}            *
+*     |       *     *                2                        *
+*     ------ *********                                        *
+*            |- base -|                                       *              
+*                                                             *
+***************************************************************
         """)            
         elif opc == 2:
-            area = area_rombo()
+            area= area_rombo()
             print(f"""
-        ********************* AREA DEL ROMBO *********************
-        *  ***********                                           *
-        *   *         *    DIAGONAL MAYOR  X DIAGONAL MENOR      *
-        *    *         *   ---------------------------------     *
-        *     ***********             2                          *
-        *                                        = {area:.2f}    *
-        **********************************************************
+        *************************** AREA DEL ROMBO ***************************
+        *  ------------------ *                                              *
+        *  |                 * *                                             *
+        *  |                *   *      DIAGONAL MAYOR  X DIAGONAL MENOR      *
+        *  |               *     *     ---------------------------------     *
+        *  |              *       *                  2                       *
+        * Diagonal Mayor *         *                                         *
+        *  |            | *       * |          = {area:.2f}                  *
+        *  |            |  *     *  |                                        *
+        *  |            |   *   *   |                                        *
+        *  |            |    * *    |                                        *
+        *  -------------|---- *     |                                        *
+        *               - Dia Menor -                                        *
+        *                                                                    *
+        **********************************************************************
         """)   
         elif opc == 3:
-            area = area_trapesio()
+            area, a, bmayor, bmenor= area_trapesio()
             print(f"""
         ******************** AREA DEL TRAPESIO *******************
-        *      ****                                              *
-        *     *    *          (BASE MAYOR + BASE MENOR) X ALTURA *
-        *    *      *        ----------------------------------- *
-        *    *********                       2                   *
-        *                                       = {area:.2f}     *
+        *                                                        *
+        *             |-Ba Menor-|                               *
+        *    --------- **********                                *
+        *    |        *          *                               *
+        *  Altura    *            *                              *       
+        *    |      *              *                             *
+        *    ----- ******************                            *
+        *          |-- Base Mayor ---|                           * 
+        *                                                        *
+        *     ({bmayor:.1f} + {bmenor:.1f}) X {a}                              *
+        *   ------------------------       = {area:.2f}             *
+        *               2                                        *
+        *                                                        *
         **********************************************************
         """)   
         elif opc == 4:
