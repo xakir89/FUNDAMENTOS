@@ -4,9 +4,15 @@
 #  • Trapecio 
 
 def variable(v):
-    x = float(input(f"Ingrese el valor para {v}: "))
-    print()
-    return x
+    while True:  
+        x = float(input(f"Ingrese el valor para {v}: "))
+        print()
+        if x > 0:
+            return x
+            break
+        else:
+            print("las medidas deben ser mayores de 0")
+    
 def area_triangulo():
     base = variable(f"""
                     
@@ -66,11 +72,13 @@ diagonal menor del rombo""")
 def area_trapesio():
     base_mayor = variable(f"""
 
-      --------- **********
-      |        *          *          
-    Altura    *            *         
-      |      *              *
-      ----- ******************
+                **********
+               *          *          
+              *            *         
+             *              *
+            ******************                   
+            |-- Base Mayor ---| 
+
                                                   
 base mayor del trapesio""")
     base_menor = variable(f"""
@@ -83,17 +91,19 @@ base mayor del trapesio""")
             ******************
 
 base menor del trapesio""")
-    altura = variable(f"""\
-
-                **********
-               *          *          
-              *            *         
-             *              *
-            ******************                   
-            |-- Base Mayor ---|                     
+    altura = variable(f"""
+                      
+      --------- **********
+      |        *          *          
+    Altura    *            *         
+      |      *              *
+      ----- ******************                  
 
 altura del trapesio""")
-    area = ((base_mayor+base_menor)*altura)/2
+    if base_mayor > base_menor:
+        area = ((base_mayor+base_menor)*altura)/2
+    else:
+        print("la base mayor debe ser mas grande")
     return area, altura, base_mayor, base_menor
 
 def menu():
@@ -126,40 +136,40 @@ def menu():
         elif opc == 2:
             area= area_rombo()
             print(f"""
-        *************************** AREA DEL ROMBO ***************************
-        *  ------------------ *                                              *
-        *  |                 * *                                             *
-        *  |                *   *      DIAGONAL MAYOR  X DIAGONAL MENOR      *
-        *  |               *     *     ---------------------------------     *
-        *  |              *       *                  2                       *
-        * Diagonal Mayor *         *                                         *
-        *  |            | *       * |          = {area:.2f}                  *
-        *  |            |  *     *  |                                        *
-        *  |            |   *   *   |                                        *
-        *  |            |    * *    |                                        *
-        *  -------------|---- *     |                                        *
-        *               - Dia Menor -                                        *
-        *                                                                    *
-        **********************************************************************
+*************************** AREA DEL ROMBO ***************************
+*  ------------------ *                                              *
+*  |                 * *                                             *
+*  |                *   *      DIAGONAL MAYOR  X DIAGONAL MENOR      *
+*  |               *     *     ---------------------------------     *
+*  |              *       *                  2                       *
+* Diagonal Mayor *         *                                         *
+*  |            | *       * |          = {area:.2f}                  *
+*  |            |  *     *  |                                        *
+*  |            |   *   *   |                                        *
+*  |            |    * *    |                                        *
+*  -------------|---- *     |                                        *
+*               - Dia Menor -                                        *
+*                                                                    *
+**********************************************************************
         """)   
         elif opc == 3:
             area, a, bmayor, bmenor= area_trapesio()
             print(f"""
-        ******************** AREA DEL TRAPESIO *******************
-        *                                                        *
-        *             |-Ba Menor-|                               *
-        *    --------- **********                                *
-        *    |        *          *                               *
-        *  Altura    *            *                              *       
-        *    |      *              *                             *
-        *    ----- ******************                            *
-        *          |-- Base Mayor ---|                           * 
-        *                                                        *
-        *     ({bmayor:.1f} + {bmenor:.1f}) X {a}                              *
-        *   ------------------------       = {area:.2f}             *
-        *               2                                        *
-        *                                                        *
-        **********************************************************
+******************** AREA DEL TRAPESIO *******************
+*                                                        *
+*             |-Ba Menor-|                               *
+*    --------- **********                                *
+*    |        *          *                               *
+*  Altura    *            *                              *       
+*    |      *              *                             *
+*    ----- ******************                            *
+*          |-- Base Mayor ---|                           * 
+*                                                        *
+*     ({bmayor:.1f} + {bmenor:.1f}) X {a}                               *
+*   ------------------------       = {area:.2f}              *
+*               2                                        *
+*                                                        *
+**********************************************************
         """)   
         elif opc == 4:
             print("Gracias por confiar en nosotros")
