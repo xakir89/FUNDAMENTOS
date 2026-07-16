@@ -25,7 +25,6 @@ def calcular():
     return x,iva, total
 
 def tablero(x, iva, total):
-    
     print("-"*49)
     print(f"|{'INGRESO':^15}|{'IVA':^15}|{'TOTAL':^15}|")
     print("-"*49)
