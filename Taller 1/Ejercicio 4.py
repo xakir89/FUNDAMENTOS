@@ -68,7 +68,7 @@ diagonal mayor del rombo""")
                                     
 diagonal menor del rombo""")
     area = (diagional_mayor*diagonal_menor)/2
-    return area
+    return area, diagional_mayor, diagonal_menor
 def area_trapesio():
     base_mayor = variable(f"""
 
@@ -134,16 +134,16 @@ def menu():
 ***************************************************************
         """)            
         elif opc == 2:
-            area= area_rombo()
+            area, dma, dme= area_rombo()
             print(f"""
 *************************** AREA DEL ROMBO ***************************
 *  ------------------ *                                              *
 *  |                 * *                                             *
-*  |                *   *      DIAGONAL MAYOR  X DIAGONAL MENOR      *
+*  |                *   *               {dma}  X {dme}                *
 *  |               *     *     ---------------------------------     *
 *  |              *       *                  2                       *
 * Diagonal Mayor *         *                                         *
-*  |            | *       * |          = {area:.2f}                  *
+*  |            | *       * |             = {area:.2f}                  *
 *  |            |  *     *  |                                        *
 *  |            |   *   *   |                                        *
 *  |            |    * *    |                                        *
